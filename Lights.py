@@ -6,8 +6,7 @@ class TrafficLight:
         self.state = state
         self.position = position
 
-
     def __repr__(self):
-        return "Traffic Lights({},{},{})".format(self.colour, self.state, self.position)
+        return "{} {} {}".format(self.position, self.colour, self.state)
 
 

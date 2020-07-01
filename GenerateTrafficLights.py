@@ -10,8 +10,8 @@ class GenerateTraffic:
         self.number = number
         self.counter = 1
 
-        self.colours = ["red", "green", "white"]
-        self.colours_modified = list(islice(cycle(self.colours), number))
+        self.colours_list = ["red", "green", "white"]
+        self.colours_modified = list(islice(cycle(self.colours_list), number))
 
         self.traffic_whole = []
         for i, x in zip(range(number), self.colours_modified):
@@ -26,7 +26,8 @@ class GenerateTraffic:
                 light.state = "on"
             if light.position == self.counter-1 :
                 light.state = "off"
-        print(current_time + str(self.traffic_whole) + " counter:" + str(self.counter))
+
+        print(current_time + " "+str(self.traffic_whole) + " counter:" + str(self.counter))
         if self.counter == self.number:
             light.state = "off"
             self.counter = 1
