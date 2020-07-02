@@ -1,5 +1,5 @@
 from GenerateTrafficLights import GenerateTraffic
 
 if __name__ == '__main__':
-     GenerateTraffic(5).runProgram()
+     GenerateTraffic(2).runProgram()
 

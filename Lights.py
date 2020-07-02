@@ -1,4 +1,5 @@
 
+#initialize a Light
 class TrafficLight:
 
     def __init__(self, colour, state, position):
