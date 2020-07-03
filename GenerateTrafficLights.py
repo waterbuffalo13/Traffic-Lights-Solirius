@@ -26,25 +26,45 @@ class GenerateTraffic:
             self.traffic_whole.append(TrafficLight(x, "off", i))
 
     def runProgram(self):
-
-
+        # threading.Timer(1.0, self.runProgram).start()
         while(True):
             index = 0
             light = self.traffic_whole
-
+            current_time = datetime.now().strftime("%H:%M:%S:%f")
             while index < len(light):
+                # time.sleep(1)
+                #initial variable
                 if light[index].position == self.counter:
+                    time.sleep(1)
+                    # print("counter: " + str(self.counter))
+                    # print("number:" + str(self.number))
+                    # print("index: " + str(index))
+
                     light[index].state = "on"
-                    print(light[index])
-                elif light[index].position == self.counter - 1 and (self.counter-1) >= 0 and self.counter < self.number:
+                    print(current_time + " " + str(light[index]))
+                #turn of behind initial variable from 0-len(9)
+                elif light[index].position == self.counter - 1:# and (self.counter-1) >= 0 and self.counter < self.number:
+                    # print("counter: " + str(self.counter))
+                    # print("number:" + str(self.number))
+                    # print("index: " + str(index))
+
                     light[index].state = "off"
-                    print(light[index])
-                else:
-                    print(light[index])
+                    print(current_time + " " + str(light[index]))
+                #reach end of loop
+                elif self.counter == self.number:
+                    # print("counter: " + str(self.counter))
+                    # print("number:" + str(self.number))
+                    # print("index: " + str(index))
+
+                    light[self.counter - 1].state = "off"
+                    self.counter = 0
+                    index = -1
+                    print(current_time + " " + str(light[index]))
                 index += 1
 
+            # print("---")
             self.counter += 1
-            time.sleep(1)
+            # time.sleep(1)
 
     # def runProgram(self):
     #
